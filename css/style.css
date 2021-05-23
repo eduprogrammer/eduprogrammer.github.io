@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+    background-image: url(../img/main.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.main ul {
+    list-style-type: none;
+    margin-top: 20px;
+    float: right;
+}
+
+.main ul li {
+    display: inline-block;
+}
+
+
+
+.main ul li a {
+    text-decoration: none;
+    color:ivory;
+    padding: 10px 10px;
+    background-color: indigo;
+    transition: 1.5s ease;
+    border: 1px solid chocolate;
+}
+
+.main ul li a:hover{
+    background-color: lightgreen;
+    color:maroon;
+
+}
+
+.main ul li.active a {
+    background-color: lightgreen;
+    color: maroon;
+}
+
+
+.dropdown_list {
+    display: none;
+    position: absolute;
+    margin-top: 10px;
+    min-width: 150px;
+    z-index: 1;
+}
+
+.dropdown_list a {
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown_list{
+    display: block;
+}
+
+
+.logo {
+    
+    position: absolute;
+    right: 0px;
+    padding-right: 225px;
+    margin-top: 100px;
+
+}
+
+.tit {
+    position: absolute;
+    right: 0px;
+    margin-top: 270px;
+    color:papayawhip;
+    margin-left: 50px;
+    -webkit-animation: fadein 5s;
+    -moz-animation: fadein 5s;
+    font-size: 45px;
+    font-weight: bold;
+    padding-right: 40px;
+}
+
+.subtit {
+    position: absolute;
+    right: 0px;
+    margin-top: 340px;
+    transition: 1.5s ease-in;
+    color:papayawhip;
+    font-size: 20px;
+    font-weight: normal;
+    padding-right: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.platforms img{
+    position: absolute;
+    right:0px;
+    width: 150px;
+    margin-top: 480px;
+}
+
+.platforms a img:hover{
+    background-color: thistle;
+    filter: grayscale(1);
+    transition: 0.2s ease-in-out;
+}
+
+.imgPlay {
+    margin-right: 380px;
+}
+
+.imgAmazon {
+    margin-right: 30px;
+}
+
+.imgGithub {
+    margin-right: 200px;
+    width: 80px;
+    height: 80px;
+    background-color: navy;
+}
+
+.about img {
+    border-radius: 50%;
+    margin-left: 90px;
+    width: 150px;
+}
+
+.policy ul {
+    margin-top: 20px;
+    float: right;
+    list-style-type: none;
+}
+
+.policy ul li {
+    display: inline-block;
+}
+
+.policy ul li a {
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.policy ul li a:hover {
+    color:yellowgreen;
+}
+
+.about {
+    float: left;
+    margin-top: 10px;
+    padding: 5px 5px;
+}
+
+
+.about h5 {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 15px;
+    border-left: 3px solid green;
+    border-right: 3px solid green;
+}
+
+.about h6 {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.copyright{
+    
+    position: absolute;
+    right: 0px;
+    margin-right: 350px;
+    margin-top: 280px;
+    padding: 5px 5px;
+    
+}
+
+.programming_title {
+    text-align: center;
+    padding: 5px;
+}
+
+.programming_first ul {
+    list-style-type: none;
+    float: left;
+}
+
+.programming_first ul li {
+    display: inline-block;
+}
+
+.programming_first img {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
+.programming_second ul {
+    list-style-type: none;
+    margin-top: 100px;
+    margin-left: 330px;
+    position: absolute;
+}
+
+.programming_second ul li {
+    display: inline-block;
+}
+
+.programming_second img {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
+footer img:hover {
+    filter: grayscale(1);
+}
+
+.about h5:hover {
+    color: green;
+}
+
+.about h6:hover {
+    color:green;
+}
+
+.job_list img {
+    width: 80px;
+    height: 80px;
+    border-radius: 25%;
+}
+
+.job_title {
+    margin-top: 20px;
+    padding: 10px 10px;
+    float: right;
+    margin-right: 100px;
+}
+
+.job_list ul {
+    list-style-type: none;
+    float: right;
+    padding: 10px;
+}
+
+.job_list ul li {
+    display: inline-block;
+}
+
+.job_caption ul {
+    list-style-type: none;
+    float: right;
+    position: absolute;
+    right: 0px;
+    margin-top: 170px;
+}
+
+.job_caption ul li {
+    display: inline-block;
+}
+
+.job_caption p {
+    padding: 7px;
+}
+
+@keyframes fadein {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
