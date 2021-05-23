@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1:hover {
+    color:green;
+}
+
+h3:hover {
+    color:green;
+}
+
+header {
+    background-image: url(../img/other_background.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.start {
+    position: absolute;
+    background-color: darkgoldenrod;
+    background-position: center;
+    background-size: cover;
+    height: 10vh;
+    width: 205vh;
+    margin-top: 120px;
+    text-align: center;
+    font-size: 30px;
+    font-family: fantasy;
+
+}
+
+.start h1 {
+    transition: 1.5s ease;
+}
+
+.prototypes  img {
+    width: 300px;
+    max-width: 300px;
+    height: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    transition: 1.5s ease;
+}
+
+.prototypes img:hover {
+    filter: grayscale(1);
+}
+
+.prototypes {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.prototypes h4 {
+    -webkit-animation: fadein 5s;
+    -moz-animation: fadein 5s;
+}
+
+.prototypes h4:hover {
+    color:green;
+} 
+
+.prototypes ul {
+    list-style: none;
+    margin-top: 200px;
+    
+}
+
+.prototypes ul li {
+    display: inline-block;
+}
+
+.btn a {
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:slateblue;
+    width: 200px;
+    text-align: center;
+    margin-left: 600px;
+    font-size: 40px;
+    text-align: center;
+    border: 3px solid slateblue;
+    transition: 0.5s ease-out;
+}
+
+.btn a:hover {
+    background-color:slateblue;
+    color:snow;
+}
+
+.main ul {
+    list-style-type: none;
+    margin-top: 20px;
+    float: right;
+}
+
+.main ul li {
+    display: inline-block;
+}
+
+.main ul li a {
+    text-decoration: none;
+    color:ivory;
+    padding: 10px 10px;
+    background-color: indigo;
+    transition: 1.5s ease;
+    border: 1px solid chocolate;
+}
+
+.main ul li a:hover{
+    background-color: lightgreen;
+    color:maroon;
+
+}
+
+.main ul li.active a {
+    background-color: lightgreen;
+    color: maroon;
+}
+
+.dropdown_list {
+    display: none;
+    position: absolute;
+    margin-top: 10px;
+    min-width: 150px;
+    z-index: 1;
+}
+
+.dropdown_list a {
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown_list{
+    display: block;
+}
+
+
+.download_list {
+    padding: 10px 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: url(../img/other_background.jpg);
+    
+}
+
+
+.download_list h1 {
+    text-align: center;
+    background-color: darkgoldenrod;
+}
+
+.download_list h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.download_list h2:hover {
+    color:green;
+}
+
+.download_list table {
+    text-align: center;
+    background-color: slateblue;
+}
+
+
+.download_list td {
+    background-color: tan;
+    padding: 10px 10px;
+}
+
+.download_list td:hover {
+    color:darkred;
+}
+
+.download_list th { 
+    background-color: darkmagenta;
+    padding: 10px 10px;   
+}
+
+.download_list th:hover {
+    color:darkred;
+}
+
+.download_list a:hover {
+    color:darkred;
+}
+
+.download_list img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+
+}
+
+.download_list img:hover {
+    filter: grayscale(1);
+}
+
+.download_list p {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.download_list p:hover {
+    color:green;
+}
+
+.download_list table img {
+    border-radius: 10%;
+}
+
+.about img {
+    border-radius: 50%;
+    margin-left: 90px;
+    width: 150px;
+    
+}
+
+.policy ul {
+    margin-top: 20px;
+    float: right;
+    list-style-type: none;
+}
+
+.policy ul li {
+    display: inline-block;
+}
+
+.policy ul li a {
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.policy ul li a:hover {
+    color:yellowgreen;
+}
+
+.about {
+    float: left;
+    margin-top: 10px;
+    padding: 5px 5px;
+}
+
+
+.about h5 {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 15px;
+    border-left: 3px solid green;
+    border-right: 3px solid green;
+}
+
+.about h6 {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.copyright{
+    
+    position: absolute;
+    right: 0px;
+    margin-right: 350px;
+    margin-top: 280px;
+    padding: 5px 5px;
+    
+}
+
+.programming_title {
+    text-align: center;
+    padding: 5px;
+}
+
+.programming_first ul {
+    list-style-type: none;
+    float: left;
+}
+
+.programming_first ul li {
+    display: inline-block;
+}
+
+.programming_first img {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
+.programming_second ul {
+    list-style-type: none;
+    margin-top: 100px;
+    margin-left: 330px;
+    position: absolute;
+}
+
+.programming_second ul li {
+    display: inline-block;
+}
+
+.programming_second img {
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
+footer img:hover {
+    filter: grayscale(1);
+}
+
+.about h5:hover {
+    color: green;
+}
+
+.about h6:hover {
+    color:green;
+}
+
+.job_list img {
+    width: 80px;
+    height: 80px;
+    border-radius: 25%;
+}
+
+.job_title {
+    margin-top: 20px;
+    padding: 10px 10px;
+    float: right;
+    margin-right: 100px;
+}
+
+.job_list ul {
+    list-style-type: none;
+    float: right;
+    padding: 10px;
+}
+
+.job_list ul li {
+    display: inline-block;
+}
+
+.job_caption ul {
+    list-style-type: none;
+    float: right;
+    position: absolute;
+    right: 0px;
+    margin-top: 170px;
+}
+
+.job_caption ul li {
+    display: inline-block;
+}
+
+.job_caption p {
+    padding: 7px;
+}
+
+@keyframes fadein {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}

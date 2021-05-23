@@ -1,0 +1,56 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 10px;
+    
+}
+
+body {
+    background-image: url(../img/india.png);
+    background-size: cover;
+    height: 100vh;
+}
+h1 {
+    font-size: 40px;
+}
+
+.consult_params ul {
+    list-style: none;
+}
+
+.consult_params ul li {
+    display: inline-block;
+}
+
+button {
+    background-color: orangered;
+    border-radius: 25%;
+}
+
+.consult_results {
+    text-align: center;
+}
+
+.consult_results table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid navajowhite;
+    background-color: seagreen;
+}
+
+.consult_results th {
+    background-color: navajowhite;
+    border: 2px solid blue;
+}
+
+.consult_results tr {
+    text-align: center;
+}
+
+.consult_results td {
+    background-color: azure;
+    border: 2px solid blue;
+    padding: 10px 10px;
+}
