@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+     
+</head>
+    <title>Consulta CEP</title>
+    <link rel="stylesheet" type="text/css" href="css/cep.css">
+    <script src="js/functions.js"></script>
+<header>
+    
+  
+
+
+</header>
+
+
+<body>
+    <h1>Consulta CEP</h1>
+
+    <div class="cep_data">
+
+        <ul>
+            <li><p>CEP:</p></li></li>
+            <li><input type="text" placeholder="00000" id="firstCep" maxlength="5" size="5" onkeydown="goToSecond()"></li>
+            <li><p>-</p></li>
+            <li><input type="text" maxlength="3" id="secondCep" placeholder="000" size="3" onkeydown="goToButton()"></li>
+            <li><button onclick="cepConsult()" id="buttonConsult">Consultar</button></li>
+            <li><button onclick="eraseIt()">Apagar</button></li>
+        </ul>
+
+    </div>
+
+    <div class="address_cep">
+
+        <p id="final_address">Endereço Correspondente: Rua Nome da Rua, número 000-999, Bairro, Cidade - Estado</p>
+
+    </div>
+
+    <button class="print" onclick="printIt()">Imprimir</button>
+    <img src="img/compass.jpg"></img>
+
+    <script>
+        function cepConsult() {
+            var first = document.getElementById("firstCep").value;
+            var second = document.getElementById("secondCep").value;
+            first += second;
+
+            $.getJSON(atob("aHR0cHM6Ly92aWFjZXAuY29tLmJyL3dzLw==") + first + atob("L2pzb24v"), function(data) {
+                var jStr = JSON.stringify(data, null, 2);
+                var obj = JSON.parse(jStr);
+
+                var one = obj.logradouro;
+                var two = obj.complemento;
+                var three = obj.bairro;
+                var four = obj.localidade;
+
+                document.getElementById("final_address").innerHTML = one + ", " + two + ", " + three + ", " + four + ".";
+                
+            });
+            
+        }
+
+        function eraseIt() {
+            document.getElementById("firstCep").value = "";
+            document.getElementById("secondCep").value = ""
+        }
+
+        function printIt() {
+            window.print();
+        }
+
+        function goToSecond() {
+            var actual = document.getElementById("firstCep").value;
+            if(actual.length == 5) {
+                document.getElementById("secondCep").focus();
+            }
+        }
+
+        function goToButton() {
+            var last = document.getElementById("secondCep").value;
+            if(last.length == 3) {
+                document.getElementById("buttonConsult").focus();
+            }
+        }
+
+    </script>
+     
+    
+</body>
+
+<footer> 
+
+    <p>Copyright 2021. Eduardo Programador.</p>
+
+</footer>
+
+</html>

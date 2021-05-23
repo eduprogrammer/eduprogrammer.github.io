@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<div class="super_img">
+
+    <img src="img/logo.png"></img>
+
+<head>
+    <title>Certidão de IP</title>
+    <link rel="stylesheet" type="text/css" href="css/ip.css">
+    <script src="js/ip.js"></script>
+    <script src="js/functions.js"></script>
+</head>
+
+<header>
+    <p>Eduardo Programador - Desenvolvedor de Software Independente</p>
+</header>
+
+<body>
+
+    <div class="certificate_container">
+
+        <h1>Certidão de IP</h1>
+        <div class="certificate_content">
+
+            <p id="words">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Certifica-se que, às 00h00min do dia dd/MM/yyyy,
+                o endereço de IP <strong>0.0.0.0</strong> forneceu requisição 
+                aos servidores de Eduardo Programador localizados
+                 em Singapura, utilizando-se do protocolo HTTP, 
+                 o qual pertence à cidade de <b>cidade</b>, estado de 
+                 <b>estado</b> pertencente a <b>país</b>. As coordenadas 
+                 geográficas aproximadas da requisição provieram 
+                 da latitude <b>latitude </b>e longitude <b>longitude</b>.</p>
+
+        </div>
+
+        <div class="sign_content">
+            <p>[Assinado Eletronicamente por Eduardo Programador]</p>
+            <p id="hash">[Hash de Assinatura: 00000000000000000000]</p>
+        </div>
+
+        <div class="date">
+            <p id="certificate_date">Certidão emitida em dd/MM/yyyy</p>
+        </div>
+
+        <div class="validation">
+            <p id="validation_code">Código de Validação: 0000.0000.0000.0000</p>
+        </div>
+
+        <div class="qr_code_container">
+            <img src="img/az_wifi.png"></img>
+        </div>
+
+    </div>
+
+    <script>
+        $.getJSON(atob("aHR0cDovL3d3dy5nZW9wbHVnaW4ubmV0L2pzb24uZ3A="), function(data) {
+          var ipData = JSON.stringify(data, null, 2);
+          var objIp = $.parseJSON(ipData);
+
+          var date = new Date();
+
+          var hour = date.getHours() + 1;
+          var min = date.getMinutes() + 1;
+          var day = date.getDate();
+          var month = date.getMonth() + 1;
+          var year = date.getFullYear();
+
+          var ip = objIp.geoplugin_request;
+          var city = objIp.geoplugin_city;
+          var region = objIp.geoplugin_region;
+          var country = objIp.geoplugin_countryName;
+          var latitude = objIp.geoplugin_latitude;
+          var longitude = objIp.geoplugin_longitude;
+
+          var template = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9"];
+          var hash = "";
+          for (var i = 0; i < 20; i++) {
+              var index = Math.floor(Math.random() * 36);
+              hash += template[index]; 
+          }
+
+          var validation = "";
+          for (var i = 0; i < 19; i++) {
+              if(i == 4 || i == 9 || i == 14) {
+                  validation += ".";
+              } else {
+                  var index = Math.floor(Math.random() * 36);
+                  validation += template[index];
+              }
+              
+          }
+
+          document.getElementById("words").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Certifica-se que, às " 
+          + hour + "h" + min + " do dia " + day + "/" + month + "/" + year + ", "
+                + "o endereço de IP <b>" + ip + " </b>forneceu requisição aos servidores de Eduardo Programador, localizados em Singapura, utilizando-se do protocolo HTTP, o qual pertence à cidade de <b>" 
+                + city + "</b>, estado de <b>" + region + "</b>, <b>" + country + 
+                "</b>. As coordenadas geográficas aproximadas da requisição provieram da latitude <b>" 
+                + latitude + "</b> e longitude <b>" + longitude + "</b>.";
+
+        document.getElementById("certificate_date").innerHTML = "Certidão emitida em " + day + "/" + month + "/" + year;
+        
+        document.getElementById("hash").innerHTML = "[Hash de Assinatura: " + hash + "]";
+
+        document.getElementById("validation_code").innerHTML = "Código de Validação: " + validation;
+
+        window.print();
+    
+        });
+        </script>
+        
+</body>
+
+<footer>
+    <p>Programação para Windows, Android, IOS e Web</p>
+</footer>
+
+</div>
+
+</html>
