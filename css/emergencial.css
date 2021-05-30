@@ -54,3 +54,35 @@ button {
     border: 2px solid blue;
     padding: 10px 10px;
 }
+
+.download_app h1 {
+    font-size: 20px;
+    text-align: unset;
+    padding: unset;
+
+}
+
+.download_app ul li p {
+    font-size: 14px;
+}
+
+.download_app img {
+    width: 100px;
+    border-radius: 25%;
+    height: 50px;
+}
+
+.download_app ul {
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    float: right;
+    margin-top: 350px;
+}
+
+.download_app ul li {
+    display: block;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    text-align: center;
+}

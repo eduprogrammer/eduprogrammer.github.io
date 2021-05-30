@@ -1,0 +1,140 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-image: url(../img/finder.png);
+    background-size: cover;
+    height: 130vh;
+}
+
+header * {
+    font-size: 20px;
+    padding: 10px 10px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 100px;
+}
+
+.cnpj_params ul {
+    list-style: none;
+    text-align: center;
+}
+
+.cnpj_params ul li {
+    display: inline-block;
+}
+
+.cnpj_params * {
+    font-size: 20px;
+    padding: 10px 10px;
+}
+
+
+.see {
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 100px;
+
+}
+
+.cnpj_result {
+    border: 2px solid black;
+    padding: 5px 5px;
+}
+
+.table_header h2 {
+    text-align: center;
+}
+
+.table_header h3 {
+    text-align: center;
+}
+
+.table_header img {
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 100px;
+}
+
+table {
+    border-collapse: separate;
+    padding: 10px 10px;
+}
+
+table li {
+    font-size: 14px;
+    
+}
+
+td {
+    border: 2px solid black;
+    text-align: left;
+}
+
+.print {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 10px 10px;
+    font-size: 20px;
+}
+
+.cnpj_result li.bold {
+    font-weight: bold;
+}
+
+.ultimate {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+.qsa {
+    margin-top: 20px;
+}
+
+button {
+    background-color: darkseagreen;
+    filter: opacity(0.9);
+    border-radius: 20%;
+}
+
+
+.download_app h1 {
+    font-size: 20px;
+    text-align: unset;
+    padding: unset;
+
+}
+
+.download_app ul li p {
+    font-size: 14px;
+}
+
+.download_app img {
+    width: 100px;
+}
+
+.download_app ul {
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    float: right;
+    margin-top: 350px;
+}
+
+.download_app ul li {
+    display: block;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    text-align: center;
+}

@@ -68,3 +68,43 @@ footer p {
     color:chartreuse;
     font-weight: bold;
 }
+
+.download_app h1 {
+    font-size: 20px;
+    text-align: unset;
+    padding: unset;
+    background-color: unset;
+
+}
+
+.download_app ul li p {
+    font-size: 14px;
+}
+
+.download_app img {
+    width: 100px;
+    border-radius: unset;
+    float: unset;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: unset;
+    right: unset;
+
+
+}
+
+.download_app ul {
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    float: left;
+    margin-top: 320px;
+}
+
+.download_app ul li {
+    display: block;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    text-align: center;
+}
