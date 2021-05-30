@@ -2,27 +2,38 @@
 <head>
      
 </head>
+    <meta charset="UTF-8">
     <title>Consulta CEP</title>
     <link rel="stylesheet" type="text/css" href="css/cep.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <script src="js/functions.js"></script>
 <header>
     
   
-
-
 </header>
 
 
 <body>
+
+    <div class="download_app">
+        <ul>
+        <li><h1>Baixe o App!</h1></li>
+        <li><p>Me Diga o Cep<br>Consulta de CEP<br>Rápido e Fácil</p></li>
+        <li><img src="img/qr_cep.png"></img></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.eduardoprogramador.medigaocep"><img src="img/play_store.png"></a></img></li>
+        </ul>
+    </div>
+
+
     <h1>Consulta CEP</h1>
 
     <div class="cep_data">
 
         <ul>
             <li><p>CEP:</p></li></li>
-            <li><input type="text" placeholder="00000" id="firstCep" maxlength="5" size="5" onkeydown="goToSecond()"></li>
+            <li><input type="text" placeholder="00000" id="firstCep" maxlength="5" size="5" onkeyup="goToSecond()"></li>
             <li><p>-</p></li>
-            <li><input type="text" maxlength="3" id="secondCep" placeholder="000" size="3" onkeydown="goToButton()"></li>
+            <li><input type="text" maxlength="3" id="secondCep" placeholder="000" size="3" onkeyup="goToButton()"></li>
             <li><button onclick="cepConsult()" id="buttonConsult">Consultar</button></li>
             <li><button onclick="eraseIt()">Apagar</button></li>
         </ul>
@@ -53,7 +64,12 @@
                 var three = obj.bairro;
                 var four = obj.localidade;
 
-                document.getElementById("final_address").innerHTML = one + ", " + two + ", " + three + ", " + four + ".";
+                if(one === undefined) {
+                    document.getElementById("final_address").innerHTML = "CEP não encontrado";
+                } else {
+
+                    document.getElementById("final_address").innerHTML = one + ", " + two + ", " + three + ", " + four + ".";
+                }
                 
             });
             

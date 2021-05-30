@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/cnpj.css">
+    <script type="text/javascript" src="js/functions.js"></script>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <title>Consulta CNPJ</title>
+</head>
+
+<header>
+
+    <div class="download_app">
+        <ul>
+        <li><h1>Baixe o App!</h1></li>
+        <li><p>CNPJ Finder<br>Consulta de CNPJ<br>sem captcha</p></li>
+        <li><img src="img/qr_cnpj_finder.png"></img></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.eduardoprogramador.cnpjfinder"><img src="img/play_store.png"></a></img></li>
+        </ul>
+    </div>
+
+    <h1>Consulta CNPJ</h1>
+
+    <div class="cnpj_params">
+
+        <ul>
+            <li><p>Número do CNPJ:</p></li>
+            <li><input type="text" maxlength="18" max="14" placeholder="CNPJ sem pontos e barras" onkeyup="processCnpjInput()" id="editCnpj"></li>
+            <li><button disabled onclick="startSearch()" id="buttonConsult">Consultar</button></li>
+        </ul>
+
+    </div>
+
+    <div class="see">
+        <button disabled onclick="seeResult()" id="buttonSee">Visualizar Resultado</button>
+    </div>
+
+    <p>Copyright 2021. Eduardo Programador</p>
+
+</header>
+
+<body>
+
+    
+
+    <div class="cnpj_result" id="cnpj_result">
+
+        <table>
+
+        <div class="table_header" id="table_header">
+        <h2>EDUARDO PROGRAMADOR</h2>
+        <img src="img/logo.png">
+        <h3>CADASTRO NACIONAL DA PESSOA JURÍDICA</h3>
+        </div>
+
+            <tr>
+                    <td>
+                        <div class="numero_inscricao">
+                            <ul>
+                                <li>NÚMERO DE INSCRIÇÃO</li>
+                                <li class="bold" id="cnpj">00.000.000/0000-00</li>
+                                <li class="bold" id="tipo">MATRIZ</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    
+                    <td colspan="2">
+                        <div class="comprovante"><ul><li class="bold">COMPROVANTE DE INSCRIÇÃO E DE SITUAÇÃO CADASTRAL</li></ul></div>
+                        
+                    </td>
+                    <td>
+                        <div class="abertura_box">
+                            <ul>
+                                <li>DATA DE ABERTURA</li>
+                                <li class="bold" id="data_de_abertura">00/00/0000</li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </td>
+                
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="second_line">
+                <ul>
+                    <li>NOME EMPRESARIAL</li>
+                    <li class="bold" id="nome_empresarial">RAZÃO SOCIAL</li>
+                </ul>
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+
+                
+                    <td colspan="3">
+                        <div class="fantasia_box">
+                            <ul>
+                                <li>TÍTULO DO ESTABELECIMENTO (NOME DE FANTASIA)</li>
+                                <li class="bold" id="nome_fantasia">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="porte_box">
+                            <ul>
+                                <li>PORTE</li>
+                                <li class="bold" id="porte">DEMAIS</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                
+
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="fourth_line">
+                <ul>
+                    <li>CÓDIGO E DESCRIÇÃO DA ATIVIDADE ECONÔMICA PRINCIPAL</li>
+                    <li class="bold" id="principal">00.00-0-00</li>
+                </ul>
+
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="fifth_line">
+                <ul id="secundarias">
+                    <li>CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</li>
+                    <li class="bold">00.00-0-00 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+                    <li class="bold">00.00-0-00 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="sixth_line">
+                <ul>
+                    <li>CÓDIGO E DESCRIÇÃO DA NATUREZA JURÍDICA</li>
+                    <li class="bold" id="natureza_juridica">000-0 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+                    <td colspan="2">
+                        <div class="logradouro_box">
+                            <ul>
+                                <li>LOGRADOURO</li>
+                                <li class="bold" id="logradouro">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="numero_box">
+                            <ul>
+                                <li>NÚMERO</li>
+                                <li class="bold" id="numero">xxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="complemento_box">
+                            <ul>
+                                <li>COMPLEMENTO</li>
+                                <li class="bold" id="complemento">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+                    <td>
+                        <div class="cep_box">
+                            <ul>
+                                <li>CEP</li>
+                                <li class="bold" id="cep">00000-000</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bairro_box">
+                            <ul>
+                                <li>BAIRRO/DISTRITO</li>
+                                <li class="bold" id="bairro">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="municipio_box">
+                            <ul>
+                                <li>MUNICÍPIO</li>
+                                <li class="bold" id="municipio">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="uf_box">
+                            <ul>
+                                <li>UF</li>
+                                <li class="bold" id="uf">xx</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+                    <td colspan="2">
+                        <div class="email_box">
+                            <ul>
+                                <li>ENDEREÇO ELETRÔNICO</li>
+                                <li class="bold" id="email">xxx@xxx.xxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="telefone_box">
+                            <ul>
+                                <li>TELEFONE</li>
+                                <li class="bold" id="telefone">(00) 0000-0000</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="tenth_line">
+                <ul>
+                    <li>ENTE FEDERATIVO RESPONSÁVEL (EFR)</li>
+                    <li class="bold" id="efr">xxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+
+                    <td colspan="2">
+                        <div class="situacao_box">
+                            <ul>
+                                <li>SITUAÇÃO CADASTRAL</li>
+                                <li class="bold" id="situacao_cadastral">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="data_situacao_box">
+                            <ul>
+                                <li>DATA DA SITUAÇÃO CADASTRAL</li>
+                                <li class="bold" id="data_situacao_cadastral">00/00/0000</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="twelfth_line">
+                <ul>
+                    <li>MOTIVO DE SITUAÇÃO CADASTRAL</li>
+                    <li class="bold" id="motivo_situacao_cadastral">xxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+                    <td colspan="2">
+                        <div class="situacao_especial_box">
+                            <ul>
+                                <li>SITUAÇÃO ESPECIAL</li>
+                                <li class="bold" id="situacao_especial">****************</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="data_especial_box">
+                            <ul>
+                                <li>DATA DA SITUAÇÃO ESPECIAL</li>
+                                <li class="bold" id="data_situacao_especial">***************</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            </table>
+
+    
+    </div>
+
+    <p class="ultimate">Desenvolvido por Eduardo Programador</p>
+    <p class="ultimate" id="consultTime">Emitido no dia <strong>00/00/0000</strong> às <strong>00:00:00</strong> (data e hora de Brasília)</p>
+    <p class="ultimate" id="capital_social_res">Capital Social: <strong>R$ 0,00</strong></p>
+    
+    <div class="qsa">
+        <table id="qsa">
+            <tr>
+                <th colspan="2">Quadro de Sócios e Administradores (QSA)</th>
+            </tr>
+
+            <tr>
+                <th>Nome</th>
+                <th>Função</th>
+            </tr>
+
+            <tr>
+                <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                <td>xxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+            <tr>
+                <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                <td>xxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+        </table>
+    </div>
+    
+    <button class="print" id="buttonPrint" onclick="printIt()">Imprimir</button>
+    
+
+    <script>
+
+        function processCnpjInput() {
+            var current = document.getElementById("editCnpj").value;
+            var buttonCnpj = document.getElementById("buttonConsult");
+
+            buttonCnpj.disabled = (current.length > 0) ? false : true;
+        };
+
+        function seeResult() {
+            window.location.hash = "table_header";
+        };
+
+        function printIt() {
+          
+            window.print();
+
+        };
+
+        function startSearch() {
+
+            var target = document.getElementById("editCnpj").value;
+            var base = atob("aHR0cHM6Ly93d3cucmVjZWl0YXdzLmNvbS5ici92MS9jbnBqLw==");
+            base += target;
+
+
+            $.ajax({                
+   type: atob("R0VU"),
+   crossDomain: true,
+   dataType: atob("anNvbnA="),
+   url: base,
+   success: function(data){
+
+        var buttonSee = document.getElementById("buttonSee");
+
+        var jStr = JSON.stringify(data, null, 2);
+        
+        var jObj = JSON.parse(jStr);
+
+        if(jObj.status.localeCompare("ERROR") == 0) {
+            alert(jObj.message);
+            buttonSee.disabled = true;
+
+        } else if(jObj.status.localeCompare("OK") == 0) {
+
+        buttonSee.disabled = false;
+
+        
+        var atividade_principal = jObj.atividade_principal[0].text;
+        var code = jObj.atividade_principal[0].code;
+        var data_situacao = jObj.data_situacao;
+        var tipo = jObj.tipo;
+        var nome = jObj.nome;
+        var uf = jObj.uf;
+        var telefone = jObj.telefone;
+        var situacao = jObj.situacao;
+        var bairro = jObj.bairro;
+        var logradouro = jObj.logradouro;
+        var numero = jObj.numero;
+        var cep = jObj.cep;
+        var municipio = jObj.municipio;
+        var porte = jObj.porte;
+        var abertura = jObj.abertura;
+        var natureza_juridica = jObj.natureza_juridica;
+        var fantasia = jObj.fantasia;
+        var cnpj = jObj.cnpj;
+        var ultima_atualizacao = jObj.ultima_atualizacao;
+        var status = jObj.status;
+
+        var complemento = jObj.complemento;
+        var email = jObj.email;
+        var efr = jObj.efr;
+        var motivo_situacao = jObj.motivo_situacao;
+        var situacao_especial = jObj.situacao_especial;
+        var data_situacao_especial = jObj.data_situacao_especial;
+
+        var capital_social = jObj.capital_social;
+
+        var atividades_secundarias = jObj.atividades_secundarias;
+        var secBuilder = "<li>CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</li>";
+
+        var qsaBuilder = "<tr><th colspan=\"2\">Quadro de Sócios e Administradores (QSA)</th></tr><tr><th>Nome</th><th>Função</th></tr>";
+
+        document.getElementById("cnpj").innerHTML = cnpj;
+        document.getElementById("tipo").innerHTML = tipo;
+        document.getElementById("data_de_abertura").innerHTML = abertura;
+        document.getElementById("nome_empresarial").innerHTML = nome;
+        document.getElementById("nome_fantasia").innerHTML = fantasia;
+        document.getElementById("porte").innerHTML = porte;
+        document.getElementById("principal").innerHTML = atividade_principal;
+        document.getElementById("natureza_juridica").innerHTML = natureza_juridica;
+        document.getElementById("logradouro").innerHTML = logradouro;
+        document.getElementById("numero").innerHTML = numero;
+        document.getElementById("complemento").innerHTML = complemento;
+        document.getElementById("cep").innerHTML = cep;
+        document.getElementById("bairro").innerHTML = bairro;
+        document.getElementById("municipio").innerHTML = municipio;
+        document.getElementById("uf").innerHTML = uf;
+        document.getElementById("email").innerHTML = email;
+        document.getElementById("telefone").innerHTML = telefone;
+        document.getElementById("efr").innerHTML = efr;
+        document.getElementById("situacao_cadastral").innerHTML = situacao;
+        document.getElementById("data_situacao_cadastral").innerHTML = data_situacao;
+        document.getElementById("motivo_situacao_cadastral").innerHTML = motivo_situacao;
+        document.getElementById("situacao_especial").innerHTML = situacao_especial;
+        document.getElementById("data_situacao_especial").innerHTML = data_situacao_especial;
+
+        $(atividades_secundarias).each(function(i, item) {
+
+            var sec_code = item.code;
+            var sec_text = item.text;
+
+            secBuilder += "<li class = \"bold\">" + sec_code + "&nbsp;-&nbsp;" + sec_text + "</li>";
+
+        });
+
+        var qsa = jObj.qsa;
+
+        $(qsa).each(function(i, item) {
+
+            var qsa_qual = item.qual;
+            var qsa_nome = item.nome;
+
+            qsaBuilder += "<tr><td>" + qsa_qual + "</td><td>" + qsa_nome + "</td></tr>";
+
+        });
+
+        document.getElementById("secundarias").innerHTML = secBuilder;
+        document.getElementById("capital_social_res").innerHTML = "Capital Social: <strong>R$ " + capital_social + "</strong>";
+        document.getElementById("qsa").innerHTML = qsaBuilder;
+
+        var theTime = new Date();
+        
+        var day = theTime.getDate();
+        var month = theTime.getMonth() + 1;
+        var year = theTime.getFullYear();
+        var hour = theTime.getHours();
+        var min = theTime.getMinutes();
+        var seconds = theTime.getSeconds();
+
+        document.getElementById("consultTime").innerHTML = "Emitido no dia <strong>" + day + "/" + month + "/" + year + "</strong> às <strong>" + hour + ":" + min + ":" + seconds + "</strong> (data e hora de Brasília)."
+        
+        }
+
+        
+   }
+});
+        };
+
+    </script>
+    
+   
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/emergencial.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <title>Auxílio Emergencial</title>
+</head>
+
+<header>
+
+</header>
+
+<body>
+
+    <div class="download_app">
+        <ul>
+        <li><h1>Baixe o Software!</h1></li>
+        <li><p>Transparência Robot<br>Consulta a Auxílio Emergencial<br>Licitação e Convênios<br>Bolsa Família<br>Servidores Públicos<br>Acordos de Leniência</p></li>
+        <li><a href="soft/TransparenciaRobotGUI.jar"><img src="img/java.png"></a></img></li>
+        </ul>
+    </div>
+
+    <h1>Consulta de Auxílio Emergencial</h1>
+
+    <div class="consult_params">
+
+        <ul>
+            <li><p>CPF do Beneficiário:</p></li>
+            <li><input type="text" maxlength="14" size="18" placeholder="CPF sem pontos e traços" id="editCpf" onkeyup="enableButton()"></li>
+            <li><button disabled id="btnConsult" onclick="doConsult()">Consultar</button></li>
+        </ul>
+
+    </div>
+
+    <div class="consult_results" id="consult_results">
+
+        <table id="table_results">
+            <tr>
+                <th>CPF</th>
+                <th>Nome</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Mês de Referência</th>
+                <th>Parcela</th>
+                <th>Valor</th>
+            </tr>
+
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <button onclick="printIt()">Imprimir</button>
+
+    <script>
+
+        if(location.protocol === 'https:') {
+            window.location.replace("https://eduprogrammer.github.io/auxilio_emergencial.html");
+        }
+        
+       
+        function enableButton() {
+            
+            var now = document.getElementById("editCpf").value;
+            if(now.length > 0) {
+                document.getElementById("btnConsult").disabled = false;
+
+            } else {
+                document.getElementById("btnConsult").disabled = true;
+            }
+        };
+
+        
+
+        function printIt() {
+            window.print();
+            
+        };
+
+
+
+
+        function doConsult() {
+            var cpf = document.getElementById("editCpf").value;
+
+            $.ajaxSetup({
+            headers : {
+                 'Accept' : atob("Ki8q"),
+                'chave-api-dados' : atob("YWJiZDM0YTIwYjhhMmEyYWQwMWI2YmE2NjMyZTUxMWQ=")
+            }
+        });
+
+        
+
+        $.getJSON(atob("aHR0cDovL2FwaS5wb3J0YWxkYXRyYW5zcGFyZW5jaWEuZ292LmJyL2FwaS1kZS1kYWRvcy9hdXhpbGlvLWVtZXJnZW5jaWFsLXBvci1jcGYtb3UtbmlzP2NvZGlnb0JlbmVmaWNpYXJpbz0=") + cpf + atob("JnBhZ2luYT0x"), function (data) {
+
+            if(data.length == 0) {
+                document.getElementById("table_results").innerHTML = "Nenhum beneficiário encontrado";
+                
+            } else {
+
+                var construction = "<tr><th>CPF</th><th>Nome</th><th>Cidade</th><th>Estado</th><th>Mês de Referência</th><th>Parcela</th><th>Valor</th></tr>";
+
+                $(data).each(function (i, item) {
+
+                var month = item.mesDisponibilizacao;
+                var cpf = item.beneficiario.cpfFormatado;
+                var name = item.beneficiario.nome;
+                var city = item.municipio.nomeIBGE;
+                var uf = item.municipio.uf.sigla;
+                var price = item.valor;
+                var parcel = item.numeroParcela;
+                var common = month + " and " + cpf + " and " + name + " and " + city + " and " + uf + " and " + price + " and " + parcel;
+
+                construction += "<tr><td>" + cpf + "</td>" + "<td>" + name + "</td>" + "<td>" + city + "</td>" + "<td>" + uf + "</td>" + "<td>" + month + "</td>" + "<td>" + parcel + "</td>" + "<td>" + price + "</td></tr>";
+
+            });
+
+            document.getElementById("table_results").innerHTML = construction;
+
+            }
+
+        });
+
+        }
+        
+    </script>
+  
+</body>
+
+<footer>
+
+    <p>Copyright 2021. Eduardo Programador</p>
+
+</footer>
+
