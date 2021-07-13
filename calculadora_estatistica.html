@@ -347,17 +347,7 @@
             var min = theTime.getMinutes();
             var seconds = theTime.getSeconds();
         
-        $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Calculadora Estatística",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : "Calculadora"
-                    }
-                });
-
+    
         
 
 
