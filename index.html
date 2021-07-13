@@ -141,19 +141,7 @@
                     var month = date.getMonth() + 1;
                     var year = date.getFullYear();
 
-                        $.ajax({
-                            url : "php/main.php",
-                            method : "POST",
-                                data : {
-                                    'date' : day + "-" + month + "-" + year,
-                                    'time' : hour + ":" + min + ":" + date.getSeconds(),
-                                    'acao' : "Inicio"
-                                }
-                        }).done(function(data) {
-                            document.getElementById("access").innerHTML = "Este site foi visualizado <strong>" + data + "</strong> vezes desde 05/06/2021";
-                        });
-
-                      
+                     
 
                 function closeAdvice() {
                   
@@ -244,9 +232,6 @@
             </div>
 
 
-            <div class="access">
-                <p id="access">Este site foi visitado <strong>0</strong> vezes desde 05/06/2021</p>
-            </div>
             
             <div class="copyright">
                 <p>Copyright 2021. Desenvolvimento Próprio. Todos os direitos reservados<br>
