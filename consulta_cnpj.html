@@ -4,11 +4,57 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/cnpj.css">
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/chat_functions.js"></script>
     <link rel="icon" type="image/png" href="img/logo.png">
     <title>Consulta CNPJ</title>
 </head>
 
 <header>
+
+    <div class="chat" id="initChat" onclick="displayChat()">
+
+        <img src="img/ico_dev.png"></img>
+        <p>Fale agora com o Programador</p>
+
+    </div>
+
+    <div class="chat_inside" id="chat_inside">
+
+        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
+
+        <div class="chat_content" id="chat_content">
+        <div class="chat_me">
+            <br>
+            <ul>
+            <li><img src="img/ico_dev.png"></img></li>
+            <li><h2>Eduardo Programador</h2></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th><p>Nome:</p></th>
+                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
+            </tr>
+
+            <tr>
+                <th><p>E-mail:</p></th>
+                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
+            </tr>
+
+            <tr>
+                <th><p>Mensagem:</p></th>
+                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
+            </tr>
+
+        </table>
+
+        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
+        <br><br>
+
+        </div>
+
+    </div>
 
     <div class="download_app">
         <ul>
@@ -27,6 +73,7 @@
             <li><p>Número do CNPJ:</p></li>
             <li><input type="text" maxlength="18" max="14" placeholder="CNPJ sem pontos e barras" onkeyup="processCnpjInput()" id="editCnpj"></li>
             <li><button disabled onclick="startSearch()" id="buttonConsult">Consultar</button></li>
+            <li class="loader" id="loader"></li>
         </ul>
 
     </div>
@@ -335,6 +382,10 @@
 
     <script>
 
+        if(location.protocol === 'http:') {
+            window.location.replace("https://eduardoprogramador.com/consulta_cnpj.html");
+        }
+
         function processCnpjInput() {
             var current = document.getElementById("editCnpj").value;
             var buttonCnpj = document.getElementById("buttonConsult");
@@ -354,9 +405,32 @@
 
         function startSearch() {
 
+            var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+
+            var loader = document.getElementById("loader");
+            loader.style.visibility = "visible";
+
             var target = document.getElementById("editCnpj").value;
             var base = atob("aHR0cHM6Ly93d3cucmVjZWl0YXdzLmNvbS5ici92MS9jbnBqLw==");
             base += target;
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Consulta CNPJ",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : target
+                    }
+                });
 
 
             $.ajax({                
@@ -365,6 +439,7 @@
    dataType: atob("anNvbnA="),
    url: base,
    success: function(data){
+
 
         var buttonSee = document.getElementById("buttonSee");
 
@@ -375,10 +450,12 @@
         if(jObj.status.localeCompare("ERROR") == 0) {
             alert(jObj.message);
             buttonSee.disabled = true;
+            loader.style.visibility = "hidden";
 
         } else if(jObj.status.localeCompare("OK") == 0) {
 
         buttonSee.disabled = false;
+        loader.style.visibility = "hidden";
 
         
         var atividade_principal = jObj.atividade_principal[0].text;
@@ -464,22 +541,18 @@
         document.getElementById("capital_social_res").innerHTML = "Capital Social: <strong>R$ " + capital_social + "</strong>";
         document.getElementById("qsa").innerHTML = qsaBuilder;
 
-        var theTime = new Date();
         
-        var day = theTime.getDate();
-        var month = theTime.getMonth() + 1;
-        var year = theTime.getFullYear();
-        var hour = theTime.getHours();
-        var min = theTime.getMinutes();
-        var seconds = theTime.getSeconds();
 
-        document.getElementById("consultTime").innerHTML = "Emitido no dia <strong>" + day + "/" + month + "/" + year + "</strong> às <strong>" + hour + ":" + min + ":" + seconds + "</strong> (data e hora de Brasília)."
+        document.getElementById("consultTime").innerHTML = "Emitido no dia <strong>" + day + "/" + month + "/" + year + "</strong> às <strong>" + hour + ":" + min + ":" + seconds + "</strong> (data e hora de Brasília)."        
+
+
         
         }
 
-        
    }
 });
+
+
         };
 
     </script>
