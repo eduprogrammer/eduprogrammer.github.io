@@ -1,0 +1,20 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+}
+
+img {
+    float: right;
+}
