@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Estatística</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/calculadora_estatistica.css">
+    <script type="text/javascript" src="js/calculator.js"></script>
+    <script type="text/javascript" src="js/calc_operations.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/chat_functions.js"></script>
+
+</head>
+
+<header>
+
+    <div class="chat" id="initChat" onclick="displayChat()">
+
+        <img src="img/ico_dev.png"></img>
+        <p>Fale agora com o Programador</p>
+
+    </div>
+
+    <div class="chat_inside" id="chat_inside">
+
+        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
+
+        <div class="chat_content" id="chat_content">
+        <div class="chat_me">
+            <br>
+            <ul>
+            <li><img src="img/ico_dev.png"></img></li>
+            <li><h2>Eduardo Programador</h2></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th><p>Nome:</p></th>
+                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
+            </tr>
+
+            <tr>
+                <th><p>E-mail:</p></th>
+                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
+            </tr>
+
+            <tr>
+                <th><p>Mensagem:</p></th>
+                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
+            </tr>
+
+        </table>
+
+        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
+        <br><br>
+
+        </div>
+
+    </div>
+
+    <div class="home">
+        <a href="index.html">Início</a>
+    </div>
+
+    <img src="img/calc_title.png" class="imgTitle"></img>
+
+    <p class="subtitle">Este módulo contempla diversas funcionalidades, 
+        como calculadora comum, calculadora estatística, 
+        equação do segundo grau, juros simples e composto. 
+        Para migrar de uma funcionalidade a outra, basta escolher 
+        a calculadora específica através do slide abaixo.</p>
+
+            
+            <div class="calc_description">
+            <h2 id="type">Tipo de Calculadora: xxx</h2>
+            <h3 id="description">Descrição: xxx</h3>
+            </div>
+
+            <div class="download_app">
+                <ul>
+                <li><h1>Baixe o App!</h1></li>
+                <li><p>Statistic Calc<br>Super Calculadora<br>Diversos Módulos</p></li>
+                <li><img src="img/qr_calculator.png"></img></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.github.eduprogrammer.fenixcalculator"><img src="img/play_store.png"></a></img></li>
+                </ul>
+            </div>
+
+            <p class="copyright">Copyright 2021. Eduardo Programador</p>
+        
+        <div class="calc_container">
+
+
+            <div class="calc">
+
+                <br>
+                <div class="visor">
+                    <p class="firstVisor" id="firstVisor">0</p>
+                    <p class="operation" id="operation">+</p>
+                    <p class="secondVisor" id="secondVisor">0</p>
+                </div>
+
+                
+                
+                <div class="calc_buttons" id="calc_type">
+
+                    <br>
+                    <ul>
+                        <li><button onclick="onOperation(0)">+</button></li>
+                        <li><button class="number" onclick="appendNumber(1)">1</button></li>
+                        <li><button class="number" onclick="appendNumber(2)">2</button></li>
+                        <li><button class="number" onclick="appendNumber(3)">3</button></li>
+                        <li><button onclick="onOperation(1)">-</button></li>
+                    </ul>
+
+                    <ul>
+                        <li><button onclick="onOperation(2)">*</button></li>
+                        <li><button class="number" onclick="appendNumber(4)">4</button></li>
+                        <li><button class="number" onclick="appendNumber(5)">5</button></li>
+                        <li><button class="number" onclick="appendNumber(6)">6</button></li>
+                        <li><button onclick="onOperation(3)">/</button></li>
+                    </ul>
+
+                    <ul>
+                        <li><button class="special" onclick="invertSign()">a</button></li>
+                        <li><button class="number" onclick="appendNumber(7)">7</button></li>
+                        <li><button class="number" onclick="appendNumber(8)">8</button></li>
+                        <li><button class="number" onclick="appendNumber(9)">9</button></li>
+                        <li><button class="erase" onclick="eraseIt()">x</button></li>
+                    </ul>
+
+                    <ul class="dot">
+                        <li><button class="number" onclick="appendNumber(0)">0</button></li>
+                        <li><button class="special" onclick="appendDot()">.</button></li>
+                    </ul>
+
+                    <br>
+                    <button class="equal" onclick="getResult()">=</button>
+
+
+                </div>
+                
+
+                <div class="calc_statistical" id="calc_type">
+
+                    <ul>
+                        <li><button class="number" onclick="addN(1)">1</button></li>
+                        <li><button class="number" onclick="addN(2)">2</button></li>
+                        <li><button class="number" onclick="addN(3)">3</button></li>
+                        <li><button class="number" onclick="addN(4)">4</button></li>
+                        <li><button class="number" onclick="addN(5)">5</button></li>
+                    </ul>
+
+                    <ul>
+                        <li><button class="number" onclick="addN(6)">6</button></li>
+                        <li><button class="number" onclick="addN(7)">7</button></li>
+                        <li><button class="number" onclick="addN(8)">8</button></li>
+                        <li><button class="number" onclick="addN(9)">9</button></li>
+                        <li><button class="number" onclick="addN(0)">0</button></li>
+                    </ul>
+
+                    <ul>
+                        <li><button class="special" onclick="addD()">.</button></li>
+                        <li><button class="special" onclick="addV()">SEP</button></li>
+                        <li><button class="erase" onclick="eraseS()">x</button></li>
+                    </ul>
+
+                    <button class="calc_st" onclick="getStatistical()">Calcular</button>
+
+                    <div class="bigdata">
+
+                        <p id="mean">Média: x</p>
+                        <p id="med">Mediana: x</p>
+                        <p id="var">Variância: x</p>
+                        <p id="sd">Desvio Padrão: x</p>
+                        <p id="cv">Coeficiente de Variação: x</p>
+                        <p id="asy">Assimetria: x</p>
+                        <p id="kur">Curtose:x</p>
+
+                    </div>
+
+                </div>
+
+                <div class="calc_second" id="calc_type">
+
+                    <p class="s_title">Preencha os coeficientes nos quadrados vermelhos:</p>
+
+                    <div class="coefficients">
+                    <ul>
+                        <li><input type="text" size="2" id="oneEq"></li>
+                        <li><input type="text" size="2" id="twoEq"></li>
+                        <li><input type="text" size="2" id="threeEq"></li>
+                    </ul>
+                    </div>
+
+                    <div class="power">
+                    <ul>
+                        <li>X²</li>
+                        <li>X</li>
+                    </ul>
+                    </div>
+
+                    <div class="invd">
+                        <ul>
+                            <li onclick="invertSignEq(0)">+-</li>
+                            <li onclick="invertSignEq(1)">+-</li>
+                            <li onclick="invertSignEq(2)">+-</li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <div class="final_degree">
+                        <ul>
+                            <li><button onclick="calcEq()">Calcular</button></li>
+                            <li><button class="erase" onclick="eraseEq()">X</button></li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <div class="solutions">
+                        <p id="solution_eq_one">Solução 1: x</p>
+                        <p id="solution_eq_two">Solução 2: x</p>
+
+                    </div>
+
+                    
+
+                </div>
+
+
+                <div class="calc_interest" id="calc_type">
+
+                    <br>
+                    <div class="option_int">
+                        <ul>
+                            <li><input type="radio" checked name="simple" onclick="setJ(0)" id="simpleInterest">&nbsp;<label for="simple">Simples</label></li>
+                            <li><input type="radio" name="coumpound" onclick="setJ(1)" id="compoundInterest">&nbsp;<label for="coumpound">Composto</label></li>
+                        </ul>
+                    </div>
+
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Capital:</th>
+                            <td><input type="text" size="5" id="capital"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Taxa (%):</th>
+                            <td><input type="text" size="5" id="taxa"></td>
+                        </tr>
+
+                        <tr>
+                            <th>Tempo:</th>
+                            <td><input type="text" size="5" id="tempo"></td>
+                        </tr>
+
+                    </table>
+
+                    <br>
+                    <div class="final_int">
+                        <ul>
+                            <li><button onclick="getJ()">Calcular</button></li>
+                            <li><button class="erase" onclick="eraseJ()">X</button></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="int_result">
+                        <p id="juros_res">Juros: x</p>
+                        <p id="capital_res">Montante: x</p>
+
+                    </div>
+
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <a class="arrows" id="leftArrow" onclick="goToLast()">&#10094;</a>
+        <a class="arrows" id="rightArrow" onclick="goToNext()">&#10095;</a>
+        
+
+</header>
+
+<body>
+
+    <script>
+
+        if(location.protocol === 'http:') {
+            location.replace("https://eduardoprogramador.com/calculadora_estatistica.html");
+        }
+
+        var type = document.getElementById("type");
+        var description = document.getElementById("description");
+
+        var first = document.getElementById("firstVisor");
+        var second = document.getElementById("secondVisor");
+        var operation = document.getElementById("operation");
+
+        var oneEq = document.getElementById("oneEq");
+        var twoEq = document.getElementById("twoEq");
+        var threeEq = document.getElementById("threeEq");
+
+        var compoundInterest = false;
+        var rbSInt = document.getElementById("simpleInterest");
+        var rbCInt = document.getElementById("compundInterest");
+        var capital = document.getElementById("capital");
+        var taxa = document.getElementById("taxa");
+        var tempo = document.getElementById("tempo");
+        var juros_res = document.getElementById("juros_res");
+        var capital_res = document.getElementById("capital_res");
+
+        second.style.visibility = "hidden";
+        operation.style.visibility = "hidden";
+
+        type.innerHTML = "Tipo de Calculadora: " + types[0];
+        description.innerHTML = "Descrição: " + descriptions[0];
+
+        isFirst = true;
+        curSlide = 0;
+        slideCount = types.length;
+
+        for(let i of document.getElementsByClassName("calc_statistical")) {
+            i.remove();
+        }
+
+        for(let i of(document.getElementsByClassName("calc_second"))) {
+            i.remove();
+        }
+
+        for(let i of(document.getElementsByClassName("calc_interest"))) {
+            i.remove();
+        }
+
+        var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+        
+        $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Calculadora Estatística",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : "Calculadora"
+                    }
+                });
+
+        
+
+
+    </script>
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

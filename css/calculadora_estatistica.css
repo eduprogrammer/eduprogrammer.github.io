@@ -1,0 +1,342 @@
+@import url("chat_to_import.css");
+
+* {
+    font-family: cursive;
+    margin: 0;
+}
+
+header {
+    background-image: url(../img/calc_background.png);
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+.imgTitle {
+    margin-left: 230px;    
+    position: absolute;
+    margin-top: 50px;
+}
+
+.subtitle {
+    position: absolute;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.calc_container {
+    position: absolute;
+    margin-top: 280px;
+    margin-left: 500px;
+}
+
+.calc_description {    
+    text-align: center;
+    position: absolute;
+    margin-top: 210px;
+    left: 0;
+    right: 0;
+}
+
+.calc {
+    margin-top: 20px;
+    background-color: rgb(250, 216, 23);
+    border-radius: 5%;
+    width: 320px;
+    height: 350px;
+}
+
+.visor {
+    position: relative;
+    background-color: rgb(0, 245, 131);
+    height: 50px;
+    width: 280px;
+    margin-left: 15px;
+    border-radius: 5%;
+}
+
+.calc_buttons ul {
+    list-style: none;
+    margin-right: 30px;
+    
+}
+
+.calc_buttons ul li {
+    display: inline-block;
+    padding: 10px 10px;    
+}
+
+.calc_buttons button:hover{
+    cursor: pointer;
+}
+
+.dot {
+    margin-left: 98px;
+}
+
+.equal {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.number {
+    color:red;
+    border: 2px solid red;
+    border-radius: 10%;
+    background-color: transparent;
+}
+
+.number:hover {
+    background-color: yellowgreen;
+}
+
+.special {
+    background-color: tomato;
+}
+
+.special:hover {
+    background-color: salmon;
+}
+
+.visor p {
+    text-align: right;
+    margin-right: 5px;
+}
+
+.operation {
+    position: absolute;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.erase {
+    background-color: red;
+    color:rgb(250, 216, 23);
+}
+
+.erase:hover {
+    background-color: chocolate;
+}
+
+.arrows {
+    position: absolute;
+    font-size: 150px;
+    width: 100px;
+    height: 100px;
+    color:red;
+    text-decoration: none;
+}
+
+.arrows:hover {
+    color:rgb(250, 216, 23);
+    cursor: pointer;
+}
+
+#leftArrow {
+    margin-left: 200px;
+}
+
+#rightArrow {
+    right: 0;
+    margin-right: 200px;
+}
+
+.invList {
+    margin-left: 10px;
+}
+
+.calc_statistical ul {
+    list-style: none;
+    text-align: center;
+    margin-right: 50px;
+}
+
+.calc_statistical ul li {
+    display: inline-block;
+    padding: 5px 5px;
+}
+
+
+
+.calc_st {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.bigdata {
+    font-size: 12px;
+    text-align: center;
+}
+
+.s_title {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.coefficients ul {
+    list-style: none;
+    
+}
+
+.coefficients ul li {
+    display: inline-block;
+    padding: 5px 5px;
+}
+
+.coefficients input {
+    background-color: rgba(247, 99, 99, 0.911);
+    text-align: center;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 10%;
+}
+
+.power ul {
+    list-style: none;
+}
+
+.power ul li {
+    display: inline-block;
+    padding-left: 50px;
+    margin-left: 25px;
+}
+
+.invd ul {
+    list-style: none;
+}
+
+.invd ul li {
+    display: inline-block;
+    background-color: rgba(55, 214, 206, 0.911);
+    width: 20px;
+    border-radius: 10%;
+    padding: 5px 20px;
+    margin-left: 15px;
+
+}
+
+.invd ul li:hover {
+    background-color: skyblue;
+}
+
+.final_degree ul {
+    list-style: none;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.final_degree ul li {
+    display: inline-block;
+}
+
+.solutions {
+    margin-left: 10px;
+}
+
+.option_int ul {
+    list-style: none;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.option_int ul li {
+    display: inline-block;
+}
+
+.calc_interest table {
+    margin-left: 50px;
+}
+
+.final_int ul {
+    list-style: none;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.final_int ul li {
+    display: inline-block;
+}
+
+.int_result {
+    margin-left: 10px;
+}
+
+.calc_interest table input {
+    background-color: rgba(171, 91, 224, 0.911);
+    border-radius: 15%;
+    text-align: center;
+}
+
+.home a {
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    color: black;
+    float: right;
+    margin-right: 100px;
+    background-color: chocolate;
+    padding: 5px 5px;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 100px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home a:hover {
+    background-color: salmon;
+}
+
+.download_app {
+    position: absolute;
+}
+
+.download_app h1 {
+    font-size: 20px;
+    text-align: unset;
+    padding: unset;
+    background-color: unset;
+
+}
+
+.download_app ul li p {
+    font-size: 14px;
+}
+
+.download_app img {
+    width: 100px;
+    border-radius: unset;
+    float: unset;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: unset;
+    right: unset;
+
+
+}
+
+.download_app ul {
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    float: left;
+    margin-top: 400px;
+    margin-left: 20px;
+}
+
+.download_app ul li {
+    display: block;
+    margin: 0px 0px;
+    padding: 5px 0px;
+    text-align: center;
+}
+.copyright {
+    position: absolute;
+    margin-left: 500px;
+    font-size: 18px;
+}

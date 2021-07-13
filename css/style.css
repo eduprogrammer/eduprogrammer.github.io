@@ -5,7 +5,7 @@
 }
 
 header {
-    background-image: url(../img/main.jpg);
+    background-image: url(../img/main_finger.jpg);
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -106,6 +106,7 @@ header {
 
 .platforms a img:hover{
     background-color: thistle;
+    border-radius: 25%;
     filter: grayscale(1);
     transition: 0.2s ease-in-out;
 }
@@ -121,12 +122,34 @@ header {
 .imgGithub {
     margin-right: 200px;
     width: 80px;
-    height: 80px;
+    height: 50px;
+    background-color: navy;
+}
+
+.platforms2 img{
+    position: absolute;
+    right:0px;
+    width: 150px;
+    margin-top: 580px;
+}
+
+.platforms2 a img:hover{
+    background-color: thistle;
+    border-radius: 25%;
+    filter: grayscale(1);
+    transition: 0.2s ease-in-out;
+}
+
+
+.imgSamsungTv {
+    margin-right: 200px;
+    width: 80px;
+    height: 50px;
     background-color: navy;
 }
 
 .about img {
-    border-radius: 50%;
+    border-radius: 20%;
     margin-left: 90px;
     width: 150px;
 }
@@ -181,6 +204,14 @@ header {
     
 }
 
+.access {
+    position: absolute;
+    right: 0px;
+    margin-right: 425px;
+    margin-top: 240px;
+    padding: 5px 5px;
+}
+
 .programming_title {
     text-align: center;
     padding: 5px;
@@ -204,7 +235,7 @@ header {
 .programming_second ul {
     list-style-type: none;
     margin-top: 100px;
-    margin-left: 330px;
+    margin-left: 380px;
     position: absolute;
 }
 
@@ -274,3 +305,140 @@ footer img:hover {
     to{opacity: 1;}
 }
 
+.advice {
+    background-color: chocolate;
+    max-width: fit-content;
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    border-radius: 10%;
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 30px;
+    animation-name: animatebottom;
+    animation-duration: 5s;
+}
+
+.advice p {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 10px;    
+}
+
+.advice h5 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    float: right;
+    padding: 5px 5px;
+}
+
+.advice h5:hover {
+    color:darkslategrey;
+    cursor: pointer;
+}
+
+.chat {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    text-align: center;    
+    overflow: auto;
+    z-index: 1;
+    animation: initChat;
+    animation-duration: 3s;
+}
+
+.chat img {
+    border-radius: 20%;
+}
+
+.chat p {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:darkgoldenrod;
+}
+
+.chat:hover {
+    cursor: pointer;
+    filter: grayscale(1);
+}
+
+.chat_inside {
+    position: fixed;
+    text-align: center;
+    overflow: auto;
+    z-index: 1;
+    background-color: rgba(0, 225, 255, 0.9);
+    width: 400px;
+    bottom: 30px;
+    right: 40px;
+    border-radius: 5%;
+    visibility: hidden;
+}
+
+.chat_inside h1 {
+    font-size: 20px;
+    right: 0px;
+    text-align: right;
+    background-color: red;
+}
+
+.chat_inside h1:hover {
+    color:seashell;
+    cursor: pointer;
+}
+
+
+.chat_inside table {
+    padding: 5px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.chat_inside table tr,td,th {
+    padding: 5px 5px;
+}
+
+.chat_inside button:hover {
+    cursor: pointer;
+}
+
+.chat_inside input,textarea {
+    text-align: center;
+}
+
+.chat_me ul {
+    list-style: none;
+}
+
+.chat_me ul li {
+    display: inline-block;
+}
+
+.chat_me img {
+    border-radius: 50%;
+    width: 50px;
+}
+
+.chat_me h2 {
+    color:seashell;
+    font-weight: bold;
+    font-size: 20px;
+    bottom: 20px;
+    position: relative;
+}
+
+
+
+
+
+
+@keyframes animatebottom {
+    from{bottom: -300px; opacity: 0}
+    to{bottom: 30px; opacity: 1}
+}
+
+@keyframes initChat {
+    from{bottom: 500px; opacity: 0;}
+    to{bottom: 30px; opacity: 1;}
+}

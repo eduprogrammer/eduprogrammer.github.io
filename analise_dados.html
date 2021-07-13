@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Análise de Dados</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/analise_dados.css">
+    <script type="text/javascript" src="js/dados.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/chat_functions.js"></script>
+</head>
+
+<header>
+
+    <div class="chat" id="initChat" onclick="displayChat()">
+
+        <img src="img/ico_dev.png"></img>
+        <p>Fale agora com o Programador</p>
+
+    </div>
+
+    <div class="chat_inside" id="chat_inside">
+
+        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
+
+        <div class="chat_content" id="chat_content">
+        <div class="chat_me">
+            <br>
+            <ul>
+            <li><img src="img/ico_dev.png"></img></li>
+            <li><h2>Eduardo Programador</h2></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th><p>Nome:</p></th>
+                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
+            </tr>
+
+            <tr>
+                <th><p>E-mail:</p></th>
+                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
+            </tr>
+
+            <tr>
+                <th><p>Mensagem:</p></th>
+                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
+            </tr>
+
+        </table>
+
+        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
+        <br><br>
+
+        </div>
+
+    </div>
+
+    <div class="home">
+        <a href="index.html">Início</a>
+    </div>
+
+    <h1>Análise de Dados</h1>
+
+    <p class="subOne">Aqui você encontra análise de dados empreendidas por <strong>Eduardo Programador</strong>. A análise de dados, também conhecida como Machine Learning e Big Data, é uma técnica que se utiliza de dados pré-existentes coletados pelo próprio analista, organização ou terceiros que visa a manipulação e o tratamento da informação colhida com o intuito de mostrar resultados mais acurados ao cliente final, combinando habilidades multidisciplinares como linguagens de programação, desenvolvimento de projetos e conhecimentos matemáticos ou estatísticos.</p>
+
+    <p class="subTwo">Visualize as análises através do slide abaixo, as quais possuem mapa de coordenadas geográficas ou gráficos, descrição e link das fontes usadas.</p>
+
+    <div class="slide">
+
+        <div class="slide_element">
+
+                <p id="slideHeader">Análise de Dados 4 de 4</p>
+                <a href="#" id="slideLink"><img src="bigdata/analise_dados_tarifa_aneel.png" id="slideImg"></a></img>
+                <p id="slideCaption">Caption</p>
+    
+        </div>        
+
+    </div>
+
+    <div class="arrows">
+        <a onclick="goToLast()" class="aFirst">&#10094;</a>
+        <a onclick="goToNext()" class="aSecond">&#10095;</a>
+    </div>
+
+    <div class="dots">
+        <span class="dOn" onclick="fromDot(0)"></span>
+        <span class="dOff2" onclick="fromDot(1)"></span>
+        <span class="dOff3" onclick="fromDot(2)"></span>
+        <span class="dOff4" onclick="fromDot(3)"></span>
+    </div>
+
+    <div class="data_results">
+
+        <p id="description">Descrição: X</p>
+        <p id="year">Ano da Pesquisa: 0000</p>
+        <p id="owner">Elaborador do Mapa ou Gráfico: X</p>
+        <p id="source">Responsável pelos Dados: X</p>
+        <a href="#" id="link">Link da Fonte de Dados</a>
+    </div>
+
+    
+
+    
+
+</header>
+
+<body>
+
+    <script>
+
+        if(window.location.protocol === 'http:') {
+            window.location.replace("https://eduardoprogramador.com/analise_dados.html");
+        }
+
+        initSlide();
+
+        setInterval(() => {
+            goToNext();
+        }, 2000);
+        
+
+        var curTime = new Date();
+
+        
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Análise de Dados",
+                        'date' : curTime.getDate() + "/" + curTime.getMonth() + "/" + curTime.getFullYear(),
+                        'time' : curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds(),
+                        'param' : "Análise de Dados"
+                    }
+                });
+
+
+
+    </script>
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

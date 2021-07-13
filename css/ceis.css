@@ -1,0 +1,161 @@
+@import url("chat_to_import.css");
+
+* {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+
+h1 {
+    font-size: 40px;
+    
+}
+
+.params ul {
+    list-style: none;
+}
+
+.params ul li {
+    display: inline-block;
+    padding: 10px 10px;
+    font-size: 20px;
+
+
+}
+
+.params ul li * {
+    font-size: 20px;
+    padding: 10px 10px;
+    margin-top: 20px;
+}
+
+.description {
+    margin-top: 10px;
+}
+
+.description p {
+    font-size: 18px;
+    margin-top: 25px;
+    background-color: brown;
+    color:darkorange;
+    font-weight: bold;
+    padding: 5px 5px;
+}
+
+.params button {
+    background-color: goldenrod;
+    border-radius: 10%;
+    color:indigo;
+}
+
+.params button:hover {
+    background-color: orange;
+    border-radius: 10%;
+    color:rebeccapurple;
+}
+
+.params button:disabled {
+    background-color: gray;
+    border-radius: 10%;
+    color:gainsboro;
+}
+
+.ceis_result table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    background-color: black;
+    
+}
+
+
+.ceis_result tr {
+    background-color: beige;
+}
+
+.ceis_result td {
+    width: fit-content;
+    font-size: 15px;
+    padding: 3px 3px;
+}
+
+.ceis_result th {
+    padding: 3px 3px;
+
+}
+
+.print button {
+    background-color: darkblue;
+    color:yellowgreen;
+    font-size: 20px;
+    padding: 10px 10px;
+    margin-top: 15px;
+}
+
+.print button:hover {
+    background-color: midnightblue;
+    color:olive;
+}
+
+.credits p {
+    float: left;
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+
+header {
+    
+    background-image: url(../img/punishment.jpg);
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+
+.download_app h1 {
+    font-size: 20px;
+    text-align: unset;
+    padding: unset;
+
+}
+
+.download_app ul li p {
+    font-size: 14px;
+}
+
+.download_app img {
+    width: 100px;
+}
+
+.download_app ul {
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    
+}
+
+.download_app ul li {
+    display: block;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    text-align: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    visibility: hidden;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+

@@ -1,3 +1,5 @@
+@import url(chat_to_import.css);
+
 * {
     margin: 0;
     padding: 0;
@@ -282,6 +284,15 @@ header {
     
 }
 
+
+.access {
+    position: absolute;
+    right: 0px;
+    margin-right: 425px;
+    margin-top: 240px;
+    padding: 5px 5px;
+}
+
 .programming_title {
     text-align: center;
     padding: 5px;
@@ -305,7 +316,7 @@ header {
 .programming_second ul {
     list-style-type: none;
     margin-top: 100px;
-    margin-left: 330px;
+    margin-left: 380px;
     position: absolute;
 }
 
