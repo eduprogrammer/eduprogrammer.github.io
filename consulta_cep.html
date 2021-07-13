@@ -132,16 +132,7 @@
                 }
 
 
-                $.ajax({
-                        url : "php/services.php",
-                        method : "POST",
-                        data : {
-                            'service' : "Consulta CEP",
-                            'date' : curTime.getDate() + "/" + curTime.getMonth() + "/" + curTime.getFullYear(),
-                            'time' : curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds(),
-                            'param' : first
-                        }
-                });
+
 
                 
             });
