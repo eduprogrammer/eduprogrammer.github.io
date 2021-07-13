@@ -421,16 +421,7 @@
             var base = atob("aHR0cHM6Ly93d3cucmVjZWl0YXdzLmNvbS5ici92MS9jbnBqLw==");
             base += target;
 
-            $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Consulta CNPJ",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : target
-                    }
-                });
+        
 
 
             $.ajax({                
