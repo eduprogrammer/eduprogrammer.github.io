@@ -24,17 +24,7 @@
                     var month = date.getMonth() + 1;
                     var year = date.getFullYear();
 
-                        $.ajax({
-                            url : "php/main.php",
-                            method : "POST",
-                                data : {
-                                    'date' : day + "-" + month + "-" + year,
-                                    'time' : hour + ":" + min + ":" + date.getSeconds(),
-                                    'acao' : "Downloads"
-                                }
-                        }).done(function(data) {
-                            document.getElementById("access").innerHTML = "Este site foi visualizado <strong>" + data + "</strong> vezes desde 05/06/2021";
-                        });
+                       
 
 
 
@@ -98,11 +88,8 @@
                         <div class="dropdown_list">
                             <a href="auxilio_emergencial.html">Auxílio Emergencial</a>
                             <a href="calculadora_estatistica.html">Calculadora Estatística</a>
-                            <a href="certidao_ip.html">Certidão de IP</a>
-                            <a href="consulta_cep.html">Consulta de CEP</a>
-                            <a href="consulta_cnpj.html">Consulta de CNPJ</a>
-                            <a href="ceis.html">Empresas Inidôneas (CEIS)</a>
-                            <a href="licitacao.html">Licitação e Contratos</a>
+                            <a href="consulta_cep.html">Consulta CEP</a>
+                            <a href="consulta_cnpj.html">Consulta de CNPJ</a>                            
                         </div>
                         
                         </div>
